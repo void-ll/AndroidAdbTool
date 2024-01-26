@@ -73,6 +73,7 @@ fun App() {
             }
             when (selectMainNav) {
                 is DeviceRecord -> DeviceRecordPage(refreshConnectedDevicesList,connectedDevicesList)
+                is ProguardGenerator -> ProguardGeneratorPage()
                 is About -> AboutPage()
             }
         }
