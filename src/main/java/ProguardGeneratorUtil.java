@@ -21,16 +21,16 @@ public final class ProguardGeneratorUtil {
         private static final char[] CHARS_ALL = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 
         public static void start(File dir, int lines, int length) {
-            start(1, dir, lines, length);
-            start(2, dir, lines, length);
+            start(TYPE_PACKAGE, dir, lines, length);
+            start(TYPE_CLASS, dir, lines, length);
             start(TYPE_VARIABLE, dir, lines, length);
         }
 
         private static void start(int type, File dir, int lines, int length) {
             String fileName;
-            if (type == 1) {
+            if (type == TYPE_PACKAGE) {
                 fileName = FILE_NAME_PACKAGE;
-            } else if (type == 2) {
+            } else if (type == TYPE_CLASS) {
                 fileName = FILE_NAME_CLASS;
             } else if (type == TYPE_VARIABLE) {
                 fileName = FILE_NAME_VARIABLE;
@@ -189,42 +189,6 @@ public final class ProguardGeneratorUtil {
 
         private static char getRandomChar() {
             return (char) (19968.0d + (Math.random() * 20901.0d));
-        }
-    }
-
-    /**
-     * 输出关键字
-     */
-    public static final class KeyWordsProguard {
-        private static final String FILE_NAME = "dictionary-keywords.txt";
-        private static final String[] KEYWORDS = {"private", "protected", "public", "boolean", "byte", "char", "double", "float", "int", "long", "short", "import", "package", "try", "catch", "throw", "throws", "finally", "break", "continue", "return", "do", "while", "if", "else", "for", "instanceof", "switch", "case", "default", "abstract", "class", "enum", "interface", "extends", "implements", "static", "strictfp", "new", "final", "native", "synchronized", "transient", "volatile", "assert", "super", "this", "void", "goto", "const", "true", "false", "null"};
-
-        public static void start(File dir) {
-            BufferedWriter out = null;
-            try {
-                try {
-                    if (!dir.exists() && dir.mkdirs()) {
-                        System.out.println("The proguard directory created successfully! " + dir.getAbsolutePath());
-                    }
-                    File file = new File(dir, FILE_NAME);
-                    out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, false)));
-                    int length = KEYWORDS.length;
-                    int i = 0;
-                    while (i < length) {
-                        String text = KEYWORDS[i];
-                        out.write(text + (i < length - 1 ? CRLF : ""));
-                        i++;
-                    }
-                    System.out.println("The proguard dictionary is written successfully! " + file.getAbsolutePath());
-                    ProguardGeneratorUtil.closeIOQuietly(out);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    ProguardGeneratorUtil.closeIOQuietly(out);
-                }
-            } catch (Throwable th) {
-                ProguardGeneratorUtil.closeIOQuietly(out);
-                throw th;
-            }
         }
     }
 

@@ -99,11 +99,6 @@ fun ProguardGeneratorPage() {
             }, content = {
                 Text("生成中文字典")
             })
-            Button(modifier = Modifier.padding(start = 10.dp), onClick = {
-                ProguardGeneratorUtil.KeyWordsProguard.start(File(outputDir))
-            }, content = {
-                Text("输出关键字")
-            })
         }
     }
 }
