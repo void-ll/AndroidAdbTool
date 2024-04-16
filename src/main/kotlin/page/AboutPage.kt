@@ -47,5 +47,14 @@ fun AboutPage(){
             Text(text = "、")
             Text(modifier = Modifier.clickable { PlatformUtil.openBrowser("https://dl.google.com/android/repository/platform-tools-latest-linux.zip") }, text = "Linux版本", color = Color.Blue)
         }
+        Column(modifier = Modifier.padding(top=10.dp)) {
+            Text(text = "谷歌全家桶：")
+            Text(modifier = Modifier.clickable { PlatformUtil.openBrowser("https://www.apkmirror.com/apk/google-inc/google-contacts-sync/") }, text = "Google Contacts Sync(com.google.android.syncadapters.contacts)", color = Color.Blue)
+            Text(modifier = Modifier.clickable { PlatformUtil.openBrowser("https://www.apkmirror.com/apk/google-inc/google-calendar-sync/") }, text = "Google Calendar Sync(com.google.android.syncadapters.calendar)", color = Color.Blue)
+            Text(modifier = Modifier.clickable { PlatformUtil.openBrowser("https://www.apkmirror.com/apk/google-inc/google-account-manager/") }, text = "Google Account Manager(com.google.android.gsf.login)", color = Color.Blue)
+            Text(modifier = Modifier.clickable { PlatformUtil.openBrowser("https://www.apkmirror.com/apk/google-inc/google-services-framework/") }, text = "Google Services Framework(com.google.android.gsf)", color = Color.Blue)
+            Text(modifier = Modifier.clickable { PlatformUtil.openBrowser("https://www.apkmirror.com/apk/google-inc/google-play-services/") }, text = "Google Play services(com.google.android.gms)", color = Color.Blue)
+            Text(modifier = Modifier.clickable { PlatformUtil.openBrowser("https://www.apkmirror.com/apk/google-inc/google-play-store/") }, text = "Google Play Store(com.android.vending)", color = Color.Blue)
+        }
     }
 }
