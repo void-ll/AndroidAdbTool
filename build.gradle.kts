@@ -1,5 +1,4 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 val versionName = "1.0.0"
 
@@ -23,10 +22,6 @@ dependencies {
     // implementation(files("libs/bundletool-all-1.15.6.jar"))
     implementation(compose.desktop.currentOs)
     implementation("com.alibaba:fastjson:1.2.83")
-}
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "11"
 }
 
 // https://github.com/JetBrains/compose-multiplatform/tree/master/tutorials/Native_distributions_and_local_execution#packaging-resources
